@@ -1,0 +1,4 @@
+# /equipment/ was renamed to /products/ (it only ever described one kind of product). Keep old links and rankings alive.
+/equipment/                       /products/                       301
+/equipment/:category/             /products/:category/             301
+/equipment/:category/:product/    /products/:category/:product/    301

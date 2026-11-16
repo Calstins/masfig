@@ -1,0 +1,34 @@
+{
+  "header": {
+    "badge": "PROVEN EXPERTISE",
+    "title": "Trusted by Industry Leaders",
+    "description": "Our commitment to premium quality and exceptional service has earned the trust of hundreds of businesses across Nigeria"
+  },
+  "items": [
+    {
+      "label": "Premium Clients",
+      "value": 500,
+      "suffix": "+",
+      "icon": "🏢"
+    },
+    {
+      "label": "Installations",
+      "value": 2500,
+      "suffix": "+",
+      "icon": "⚙️"
+    },
+    {
+      "label": "Industries Served",
+      "value": 15,
+      "suffix": "+",
+      "icon": "🌐"
+    },
+    {
+      "label": "Years Excellence",
+      "value": 20,
+      "suffix": "+",
+      "icon": "🏆"
+    }
+  ],
+  "footerNote": "Delivering premium quality across all industries since inception"
+}

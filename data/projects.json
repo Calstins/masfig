@@ -1,0 +1,91 @@
+{
+  "header": {
+    "badge": "SUCCESS STORIES",
+    "title": "Industry-Leading Results",
+    "description": "Real businesses achieving extraordinary results with MASFIG LTD premium equipment and expert support"
+  },
+  "labels": {
+    "achievement": "KEY ACHIEVEMENT",
+    "equipmentDeployed": "EQUIPMENT DEPLOYED"
+  },
+  "items": [
+    {
+      "id": "bakarey-chain",
+      "client": "Premium Bakery Chain",
+      "title": "Complete Bakery Modernization",
+      "category": "Bakery",
+      "image": "/projects/bakery-chain.jpg",
+      "metrics": [
+        { "label": "Production Increase", "value": "+150%" },
+        { "label": "Labor Reduction", "value": "-40%" },
+        { "label": "Quality Score", "value": "98.5%" },
+        { "label": "ROI Timeline", "value": "18 Months" }
+      ],
+      "testimonial": "MASFIG LTD transformed our operations. The equipment reliability is unmatched, and their support team is exceptional. We've tripled our output while maintaining premium quality.",
+      "author": "Chukwu Okafor",
+      "role": "Operations Manager",
+      "result": "Expanded from 2 to 5 locations within 2 years",
+      "equipment": ["Industrial Deck Oven", "Spiral Mixer (2x)", "Dough Divider", "Proofer Cabinet"]
+    },
+    {
+      "id": "hotel-catering",
+      "client": "Luxury Hotel Group",
+      "title": "Hotel Kitchen Infrastructure",
+      "category": "Hospitality",
+      "image": "/projects/hotel-kitchen.jpg",
+      "metrics": [
+        { "label": "Guest Satisfaction", "value": "+35%" },
+        { "label": "Service Speed", "value": "+60%" },
+        { "label": "Downtime", "value": "0.2%" },
+        { "label": "Staff Training", "value": "100%" }
+      ],
+      "testimonial": "The integration of MASFIG's equipment into our kitchen workflow was seamless. MASFIG provided comprehensive training and ongoing support that ensured our team mastered every feature.",
+      "author": "Tunde Adeyemi",
+      "role": "Executive Chef",
+      "result": "Michelin-star kitchen operations achieved",
+      "equipment": ["Commercial Deep Fryer (2x)", "Display Refrigerators (4x)", "Griddle System", "Steamer Combi"]
+    },
+    {
+      "id": "food-processor",
+      "client": "Food Processing Facility",
+      "title": "Industrial Scale Automation",
+      "category": "Processing",
+      "image": "/projects/food-processing.jpg",
+      "metrics": [
+        { "label": "Throughput", "value": "+280%" },
+        { "label": "Waste Reduction", "value": "-45%" },
+        { "label": "Efficiency", "value": "94%" },
+        { "label": "Compliance Grade", "value": "A+" }
+      ],
+      "testimonial": "Working with MASFIG was a game-changer. Their equipment is built to industrial standards and their technical support is world-class. Highly recommended for any serious operation.",
+      "author": "Yetunde Obi",
+      "role": "Production Director",
+      "result": "Became regional supplier to 50+ retailers",
+      "equipment": ["Meat Slicer Pro", "Industrial Mixer (3x)", "Packaging System", "Vacuum Sealer"]
+    },
+    {
+      "id": "catering-business",
+      "client": "Professional Catering Service",
+      "title": "Mobile & Fixed Catering Setup",
+      "category": "Catering",
+      "image": "/projects/catering-setup.jpg",
+      "metrics": [
+        { "label": "Events Capacity", "value": "+200%" },
+        { "label": "Client Retention", "value": "98%" },
+        { "label": "Avg Order Value", "value": "+85%" },
+        { "label": "Team Size", "value": "Scaled 5x" }
+      ],
+      "testimonial": "MASFIG LTD provided us with reliable, portable equipment that changed our business model. We can now handle large-scale events with confidence and consistency.",
+      "author": "Amara Chukwu",
+      "role": "Business Owner",
+      "result": "Now catering to 100+ events annually",
+      "equipment": ["Portable Ovens", "Commercial Stove", "Prep Tables (4x)", "Storage Units"]
+    }
+  ],
+  "bottomCta": {
+    "heading": "Ready to Transform Your Operations?",
+    "description": "Let's discuss how MASFIG LTD equipment can help your business achieve similar results",
+    "buttonText": "Schedule Consultation",
+    "buttonHref": "https://wa.me/2348033345066"
+  }
+}

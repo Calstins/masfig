@@ -1,0 +1,95 @@
+{
+  "header": {
+    "badge": "PREMIUM EQUIPMENT",
+    "title": "Featured Equipment Showcase",
+    "description": "Explore our curated collection of premium commercial and industrial equipment engineered for excellence"
+  },
+  "categories": [
+    { "id": "all", "name": "All Equipment" },
+    { "id": "bakery", "name": "Bakery" },
+    { "id": "commercial", "name": "Commercial Kitchen" },
+    { "id": "catering", "name": "Catering" },
+    { "id": "processing", "name": "Food Processing" },
+    { "id": "packaging", "name": "Packaging" }
+  ],
+  "items": [
+    {
+      "id": "deck-oven",
+      "name": "Industrial Deck Oven",
+      "category": "bakery",
+      "image": "/stock/deck-oven.jpg",
+      "description": "Premium European-standard deck oven for artisanal bread and pastries",
+      "specs": ["4 Decks", "Temperature: 50-300°C", "Gas/Electric", "Stainless Steel Build"],
+      "features": ["Precise temperature control", "Even heat distribution", "Digital display", "Steam injection"],
+      "capacity": "200+ loaves/batch",
+      "power": "18-22 kW",
+      "badge": "BESTSELLER"
+    },
+    {
+      "id": "commercial-fryer",
+      "name": "Deep Fryer Pro",
+      "category": "commercial",
+      "image": "/stock/commercial-fryer.jpg",
+      "description": "High-capacity commercial fryer for kitchens and food courts",
+      "specs": ["Dual Basin", "Temperature: 60-200°C", "Gas Powered", "Oil: 80L capacity"],
+      "features": ["Rapid heat recovery", "Stainless steel basket", "Built-in filtration", "Safety thermostat"],
+      "capacity": "100+ servings/hour",
+      "power": "15 kW",
+      "badge": "PREMIUM"
+    },
+    {
+      "id": "mixer-dough",
+      "name": "Spiral Dough Mixer",
+      "category": "bakery",
+      "image": "/stock/dough-mixer.jpg",
+      "description": "Heavy-duty mixer perfect for bakeries and catering operations",
+      "specs": ["80L Capacity", "3 Speeds", "Spiral Hook", "Stainless Bowl"],
+      "features": ["Smooth dough consistency", "Quick cleaning", "Safety cover", "Overload protection"],
+      "capacity": "60kg/batch",
+      "power": "2.2 kW",
+      "badge": "RELIABLE"
+    },
+    {
+      "id": "slicer-meat",
+      "name": "Meat Slicer Industrial",
+      "category": "processing",
+      "image": "/stock/meat-slicer.jpg",
+      "description": "Precision meat and deli slicer for food service excellence",
+      "specs": ["300mm Blade", "Thickness: 1-30mm", "Gravity Feed", "German Blade"],
+      "features": ["Consistent slicing", "Dishwasher safe parts", "Precision thickness", "Heavy-duty motor"],
+      "capacity": "150kg/hour",
+      "power": "0.5 kW",
+      "badge": "PRECISION"
+    },
+    {
+      "id": "refrigerator-display",
+      "name": "Display Refrigerator",
+      "category": "commercial",
+      "image": "/stock/display-fridge.jpg",
+      "description": "Elegant display fridge for hotel pastry and dessert showcasing",
+      "specs": ["Curved Glass", "Temp: -18 to 8°C", "LED Lighting", "2 Shelves"],
+      "features": ["360° visibility", "Energy efficient", "Low noise", "Easy cleaning"],
+      "capacity": "450L storage",
+      "power": "0.75 kW",
+      "badge": "ELEGANT"
+    },
+    {
+      "id": "packaging-sealer",
+      "name": "Automatic Sealer",
+      "category": "packaging",
+      "image": "/stock/packaging-sealer.jpg",
+      "description": "Food-grade packaging sealer for commercial operations",
+      "specs": ["Seal Width: 4-8mm", "Speed: 400mm/s", "Digital Control", "Vacuum Option"],
+      "features": ["Adjustable temperature", "Safe operation", "Consistent seals", "Energy saving"],
+      "capacity": "50+ bags/min",
+      "power": "1.2 kW",
+      "badge": "MODERN"
+    }
+  ],
+  "detailsLabel": "View Details",
+  "bottomCta": {
+    "description": "Need a custom equipment solution? Contact our specialists for personalized recommendations.",
+    "buttonText": "Request Equipment Consultation",
+    "buttonHref": "https://wa.me/2348033345066"
+  }
+}

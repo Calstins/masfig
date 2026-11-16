@@ -1,0 +1,18 @@
+{
+  "siteName": "MASFIG LTD",
+  "tagline": "Premium Commercial Equipment",
+  "metaTitle": "MASFIG LTD - Premium Commercial Equipment",
+  "metaDescription": "Next-Gen Food Processing & Commercial Kitchen Equipment. Premium industrial solutions for bakery, catering, hotels, and food processing.",
+  "phone1": "+2348033345066",
+  "phone2": "+2348096134860",
+  "whatsapp": "2348033345066",
+  "copyright": "MASFIG LTD. All rights reserved.",
+  "logo": "/logo-main.png",
+  "callLabel": "Call",
+  "whatsappLabel": "WhatsApp",
+  "navLinks": [
+    { "label": "Equipment", "href": "#equipment" },
+    { "label": "Logistics", "href": "#logistics" },
+    { "label": "About", "href": "#contact" }
+  ]
+}

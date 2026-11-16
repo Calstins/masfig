@@ -1,0 +1,6 @@
+<IfModule mod_proxy.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^masfig\.com$ [OR]
+  RewriteCond %{HTTP_HOST} ^www\.masfig\.com$
+  RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+</IfModule>

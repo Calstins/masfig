@@ -1,0 +1,38 @@
+{
+  "cta": {
+    "heading": "Ready to Elevate Your Operations?",
+    "description": "Contact us today for premium equipment solutions tailored to your business needs."
+  },
+  "contactLabels": {
+    "callLabel": "Call Us",
+    "altLabel": "Alternative",
+    "whatsappTagline": "Fast & Easy",
+    "whatsappTitle": "Chat on WhatsApp",
+    "whatsappSubtitle": "Get instant response from our team"
+  },
+  "contactColumnTitle": "Contact",
+  "brand": {
+    "tagline": "Premium industrial equipment solutions for commercial food operations."
+  },
+  "quickLinks": {
+    "title": "Equipment",
+    "links": [
+      { "label": "Bakery", "href": "#equipment" },
+      { "label": "Commercial Kitchen", "href": "#equipment" },
+      { "label": "Catering", "href": "#equipment" }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "links": [
+      { "label": "Delivery", "href": "/delivery-and-installation/" },
+      { "label": "Support", "href": "#contact" },
+      { "label": "Installation", "href": "/delivery-and-installation/" }
+    ]
+  },
+  "footerLinks": [
+    { "label": "Privacy", "href": "/privacy/" },
+    { "label": "Terms", "href": "/terms/" },
+    { "label": "Sitemap", "href": "/sitemap/" }
+  ]
+}

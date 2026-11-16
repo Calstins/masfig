@@ -1,0 +1,53 @@
+{
+  "badge": "Premium Industrial Solutions",
+  "heading": "Next-Gen Food Processing & Commercial Kitchen Equipment",
+  "description": "Premium industrial equipment provider for bakery, commercial kitchens, catering, hotels, food processing, and packaging. Precision engineering meets modern reliability.",
+  "ctaPrimary": {
+    "text": "Call Now",
+    "href": "tel:+2348033345066"
+  },
+  "ctaSecondary": {
+    "text": "Chat on WhatsApp",
+    "href": "https://wa.me/2348033345066"
+  },
+  "trustBadges": [
+    {
+      "label": "Premium Quality",
+      "value": "100%",
+      "subtext": "Certified equipment"
+    },
+    {
+      "label": "Support Ready",
+      "value": "24/7",
+      "subtext": "Always available"
+    }
+  ],
+  "visual": {
+    "image": "/hero-equip.jpg",
+    "badge": "Premium Grade",
+    "chipValue": "500+",
+    "chipLabel": "Installations",
+    "label": "HOTEL KITCHEN INFRASTRUCTURE",
+    "title": "Luxury-Grade Equipment"
+  },
+  "floatingCards": [
+    {
+      "image": "/stock/commercial-fryer.jpg",
+      "value": "",
+      "label": "Deep Fryer Pro",
+      "subtext": "100+ servings/hr"
+    },
+    {
+      "image": "",
+      "value": "98%",
+      "label": "Uptime",
+      "subtext": "Reliability"
+    },
+    {
+      "image": "/stock/dough-mixer.jpg",
+      "value": "",
+      "label": "Dough Mixer",
+      "subtext": "60kg/batch"
+    }
+  ]
+}

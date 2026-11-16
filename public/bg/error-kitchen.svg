@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="A cooking pot with its lid knocked off and a question mark rising as steam">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbefef"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
+
+<g fill="none" stroke="#231F20" stroke-opacity=".08" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="120" cy="110" r="46"/><circle cx="120" cy="110" r="24"/>
+<path d="M650 70h90v70h-90zM650 98h90"/><path d="M90 380c-14-60 20-92 80-92s94 32 80 92z"/></g>
+<ellipse cx="400" cy="452" rx="250" ry="22" fill="#231F20" opacity=".08"/>
+<g>
+<path d="M250 250h300v140a46 46 0 0 1-46 46H296a46 46 0 0 1-46-46z" fill="#231F20"/>
+<rect x="226" y="268" width="26" height="22" rx="8" fill="#231F20"/><rect x="548" y="268" width="26" height="22" rx="8" fill="#231F20"/>
+<rect x="250" y="250" width="300" height="22" rx="6" fill="#3a3536"/>
+<path d="M290 300v90" stroke="#fff" stroke-opacity=".12" stroke-width="10" stroke-linecap="round"/>
+<g transform="rotate(-24 590 210)"><path d="M520 196a80 40 0 0 1 160 0z" fill="#A83236"/><rect x="512" y="196" width="176" height="12" rx="6" fill="#8f2a2e"/><circle cx="600" cy="168" r="11" fill="#231F20"/></g>
+</g>
+<g fill="none" stroke="#A83236" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" class="steam">
+<path d="M352 232c-6-40 36-48 40-86 3-32-22-52-52-46"/></g>
+<circle cx="344" cy="188" r="0" fill="#A83236"/>
+<path d="M468 228c-10-22 14-34 12-56" stroke="#231F20" stroke-opacity=".25" stroke-width="8" stroke-linecap="round" fill="none"/>
+<circle cx="392" cy="205" r="9" fill="#A83236"/>
+<g fill="#A83236"><circle cx="190" cy="430" r="7"/><circle cx="222" cy="446" r="5"/><circle cx="612" cy="440" r="6"/></g>
+</svg>

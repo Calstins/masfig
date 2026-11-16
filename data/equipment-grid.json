@@ -1,0 +1,84 @@
+{
+  "header": {
+    "badge": "Industry Solutions",
+    "title": "Premium Solutions",
+    "titleGradient": "Across Industries",
+    "description": "Specialized equipment engineered for excellence. From intimate bakeries to large-scale food processing facilities—we deliver precision, reliability, and innovation."
+  },
+  "cta": {
+    "primary": {
+      "text": "Explore Equipment",
+      "href": "tel:+2348033345066"
+    },
+    "secondary": {
+      "text": "Get Expert Consultation",
+      "href": "https://wa.me/2348033345066"
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "title": "Bakery Equipment",
+      "description": "Industrial ovens, mixers, proofers, and molding systems for premium bakery operations.",
+      "icon": "UtensilsCrossed",
+      "accent": "from-orange-400 to-red-500",
+      "gradient": "from-orange-500/20 via-red-500/10 to-transparent",
+      "stats": ["200+ Facilities", "15K+ Loaves/Day"],
+      "features": ["Precision Temperature", "Digital Control", "Steam Injection"]
+    },
+    {
+      "id": 2,
+      "title": "Commercial Kitchen",
+      "description": "Professional-grade cooking ranges, fryers, grills, and preparation stations.",
+      "icon": "Flame",
+      "accent": "from-orange-400 to-yellow-500",
+      "gradient": "from-yellow-500/20 via-orange-500/10 to-transparent",
+      "stats": ["500+ Installations", "50K+ Daily Servings"],
+      "features": ["Rapid Heat Recovery", "Auto Filtration", "Safety Systems"]
+    },
+    {
+      "id": 3,
+      "title": "Catering Systems",
+      "description": "Complete catering solutions with warming, serving, and storage equipment.",
+      "icon": "ChefHat",
+      "accent": "from-primary to-orange-400",
+      "gradient": "from-primary/20 via-orange-400/10 to-transparent",
+      "stats": ["300+ Events/Month", "10K+ Guests Served"],
+      "features": ["Mobile Ready", "Thermal Control", "Easy Transport"]
+    },
+    {
+      "id": 4,
+      "title": "Hotel Hospitality",
+      "description": "Professional laundry, dishwashing, and food service equipment for hotels.",
+      "icon": "Loader",
+      "accent": "from-amber-400 to-orange-400",
+      "gradient": "from-amber-500/20 via-orange-400/10 to-transparent",
+      "stats": ["150+ Hotels", "24/7 Operations"],
+      "features": ["High Capacity", "Energy Efficient", "Quiet Operation"]
+    },
+    {
+      "id": 5,
+      "title": "Food Processing",
+      "description": "Cutting-edge machinery for bulk production, processing, and packaging automation.",
+      "icon": "Package",
+      "accent": "from-orange-400 to-amber-300",
+      "gradient": "from-amber-500/20 via-orange-500/10 to-transparent",
+      "stats": ["1000+ Tons/Month", "99.8% Uptime"],
+      "features": ["Precision Processing", "Automated Control", "Scalable"]
+    },
+    {
+      "id": 6,
+      "title": "Advanced Packaging",
+      "description": "State-of-the-art sealing, wrapping, and labeling systems for finished products.",
+      "icon": "Zap",
+      "accent": "from-primary to-amber-500",
+      "gradient": "from-primary/20 via-amber-500/10 to-transparent",
+      "stats": ["50+ Bags/Minute", "95% Accuracy"],
+      "features": ["Vacuum Sealing", "Digital Control", "Food Grade"]
+    }
+  ],
+  "bottomCta": {
+    "heading": "Ready to Transform Your Operations?",
+    "description": "Explore our full equipment catalog and find the perfect solution for your facility. Our experts are ready to guide you."
+  }
+}

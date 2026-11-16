@@ -1,0 +1,50 @@
+{
+  "header": {
+    "badge": "DELIVERY EXCELLENCE",
+    "title": "Premium Delivery Pipeline",
+    "description": "From order to installation—seamless, transparent, and backed by our premium service guarantee"
+  },
+  "steps": [
+    {
+      "icon": "Zap",
+      "title": "Order Confirmation",
+      "description": "Instant verification and processing",
+      "details": ["Automated order verification", "Payment confirmation", "Delivery scheduling", "Real-time updates"]
+    },
+    {
+      "icon": "Package",
+      "title": "Preparation",
+      "description": "Premium packaging & inspection",
+      "details": ["Professional inspection", "Secure packaging", "Quality checks", "Documentation"]
+    },
+    {
+      "icon": "Truck",
+      "title": "Logistics",
+      "description": "Door-to-door delivery",
+      "details": ["Lagos: 1-2 days delivery", "Nationwide: 3-5 days", "GPS tracking", "Driver notification"]
+    },
+    {
+      "icon": "CheckCircle",
+      "title": "Installation",
+      "description": "Setup and verification",
+      "details": ["Professional installation", "System testing", "Training provided", "Warranty activation"]
+    }
+  ],
+  "features": [
+    {
+      "icon": "MapPin",
+      "title": "Lagos Premium",
+      "description": "Door-to-door within 24-48 hours with direct handling"
+    },
+    {
+      "icon": "Clock",
+      "title": "Express Nationwide",
+      "description": "3-5 days nationwide with tracking and insurance"
+    },
+    {
+      "icon": "Shield",
+      "title": "Full Protection",
+      "description": "100% damage protection with comprehensive insurance"
+    }
+  ]
+}
