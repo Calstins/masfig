@@ -6,24 +6,29 @@ import type { MediaItem } from '@/lib/types'
 import { apiFetch } from '@/lib/api'
 import { PageHeader } from '@/components/admin/form-components'
 
-const MAX_BYTES = 4 * 1024 * 1024
+// Vercel rejects any request body over 4.5 MB (the browser then reports a misleading "CORS" error), so every photo is
+// brought under 1.5 MB here and sent in its own request.
+const TARGET_BYTES = 1.5 * 1024 * 1024
 
-/** Shrinks photos larger than 4 MB in the browser (the server hard-limits uploads to 4 MB). GIFs are sent as-is. */
-async function shrink(file: File): Promise<File> {
-  if (file.size <= MAX_BYTES || file.type === 'image/gif' || !file.type.startsWith('image/')) return file
+/** Shrinks big photos in the browser: longest side 2400 px at most, WebP, under 1.5 MB. GIFs are sent as they are. */
+async function shrink(file: File): Promise<File | null> {
+  if (file.type === 'image/gif' || !file.type.startsWith('image/')) return file.size <= TARGET_BYTES * 2 ? file : null
   try {
     const bmp = await createImageBitmap(file)
-    for (const scale of [1, 0.75, 0.55, 0.4]) {
-      const longest = Math.min(2400, Math.max(bmp.width, bmp.height)) * scale
-      const ratio = Math.min(1, longest / Math.max(bmp.width, bmp.height))
+    const longestSide = Math.max(bmp.width, bmp.height)
+    if (file.size <= TARGET_BYTES && longestSide <= 2400) return file
+    for (const scale of [1, 0.8, 0.65, 0.5, 0.4, 0.3]) {
+      const ratio = Math.min(1, (Math.min(2400, longestSide) * scale) / longestSide)
       const canvas = document.createElement('canvas')
-      canvas.width = Math.round(bmp.width * ratio); canvas.height = Math.round(bmp.height * ratio)
+      canvas.width = Math.max(1, Math.round(bmp.width * ratio)); canvas.height = Math.max(1, Math.round(bmp.height * ratio))
       canvas.getContext('2d')!.drawImage(bmp, 0, 0, canvas.width, canvas.height)
-      const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, 'image/webp', 0.85))
-      if (blob && blob.size <= MAX_BYTES) return new File([blob], file.name.replace(/\.[^.]+$/, '') + '.webp', { type: 'image/webp' })
+      for (const quality of [0.85, 0.7]) {
+        const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, 'image/webp', quality))
+        if (blob && blob.size <= TARGET_BYTES) return new File([blob], file.name.replace(/\.[^.]+$/, '') + '.webp', { type: 'image/webp' })
+      }
     }
-  } catch { /* fall through and let the server reject it */ }
-  return file
+  } catch { /* unreadable image: let the server say so */ return file.size <= TARGET_BYTES ? file : null }
+  return null
 }
 
 export default function AdminMedia() {
@@ -48,27 +53,30 @@ export default function AdminMedia() {
     const picked = Array.from(e.target.files || [])
     if (picked.length === 0) return
     setUploading(true); setMessage('')
-    const files = await Promise.all(picked.map(shrink))
-    const form = new FormData()
-    files.forEach((f) => form.append('files', f))
-    const res = await apiFetch('/media', { method: 'POST', auth: true, body: form })
-    if (res.ok) {
-      const result = await res.json()
-      if (result.media) {
-        setItems((prev) => [...result.media, ...prev])
-        const failed = result.errors?.length || 0
-        setMessage(failed > 0
-          ? `Uploaded ${result.media.length} file(s), ${failed} failed (unsupported type or too large)`
-          : `Uploaded ${result.media.length} file(s)`)
-      } else {
-        setItems((prev) => [result, ...prev])
-        setMessage(`Uploaded ${result.filename}`)
+    let done = 0
+    const problems: string[] = []
+    for (const original of picked.slice(0, 20)) {
+      const file = await shrink(original)
+      if (!file) { problems.push(`${original.name}: could not be made small enough`); continue }
+      const form = new FormData()
+      form.append('files', file)
+      try {
+        const res = await apiFetch('/media', { method: 'POST', auth: true, body: form })
+        const body = await res.json().catch(() => ({} as Record<string, unknown>))
+        if (res.ok) {
+          const added = (body.media ?? [body]) as MediaItem[]
+          setItems((prev) => [...added, ...prev])
+          done += added.length
+          if ((body.errors as unknown[] | undefined)?.length) problems.push(`${original.name}: unsupported type`)
+        } else {
+          problems.push(`${original.name}: ${(body.error as string) || (res.status === 422 ? 'not an accepted image (jpg, png, gif, webp)' : `server answered ${res.status}`)}`)
+        }
+      } catch {
+        problems.push(`${original.name}: the upload did not reach the server (file too large or connection lost)`)
       }
-    } else if (res.status === 422) {
-      setMessage('Upload rejected — allowed: jpg, jpeg, png, gif, webp (max 4 MB each after automatic shrinking, up to 10 files)')
-    } else {
-      setMessage('Upload failed — please try again')
+      setMessage(`Uploading… ${done} of ${picked.length} done`)
     }
+    setMessage(`Uploaded ${done} of ${picked.length} file(s).${problems.length ? ' Problems: ' + problems.join(' · ') : ''}`)
     setUploading(false)
     if (fileRef.current) fileRef.current.value = ''
   }
