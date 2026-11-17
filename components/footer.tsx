@@ -34,8 +34,14 @@ export function Footer({ data, settings }: { data: FooterData; settings: SiteSet
     <footer id="contact" className="bg-kitchen-soft relative border-t border-border bg-surface">
       <div className="container-x grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-main.png" alt={settings.siteName} width={180} height={48} className="h-12 w-auto mix-blend-multiply" />
+          <Link href="/" className="flex items-center gap-3" aria-label={`${settings.siteName} home`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-mark.png" alt="" width={44} height={44} className="h-11 w-11 object-contain" />
+            <span className="leading-none">
+              <span className="block font-[family-name:var(--font-display)] text-xl font-extrabold tracking-tight text-ink">MASFIG</span>
+              <span className="block text-[11px] italic text-muted-foreground">…art of service</span>
+            </span>
+          </Link>
           <p className="mt-4 max-w-xs text-sm text-ink-soft">{data.brand.tagline}</p>
           {(settings.facebook || settings.instagram || settings.twitter) && (
             <div className="mt-5 flex gap-2.5">
