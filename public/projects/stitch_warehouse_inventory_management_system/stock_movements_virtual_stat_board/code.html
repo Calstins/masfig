@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-container":"#5e7b6a","on-tertiary-container":"#f6fff6","on-background":"#0b1c30","tertiary-fixed-dim":"#afceba","secondary-fixed-dim":"#79db8d","error":"#ba1a1a","outline-variant":"#bdcaba","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface":"#0b1c30","surface":"#f8f9ff","on-tertiary":"#ffffff","inverse-surface":"#213145","surface-container-high":"#dce9ff","on-secondary-fixed":"#00210a","secondary-container":"#92f5a4","on-error":"#ffffff","on-primary":"#ffffff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","secondary-fixed":"#95f8a7","primary":"#006b2c","surface-container-lowest":"#ffffff","tertiary":"#466252","on-primary-fixed-variant":"#005320","on-secondary":"#ffffff","surface-tint":"#006e2d","primary-fixed-dim":"#62df7d","error-container":"#ffdad6","surface-variant":"#d3e4fe","on-surface-variant":"#3e4a3d","primary-fixed":"#7ffc97","primary-container":"#00873a","inverse-on-surface":"#eaf1ff","inverse-primary":"#62df7d","surface-dim":"#cbdbf5","on-tertiary-fixed":"#042014","outline":"#6e7b6c","on-secondary-container":"#007233","on-primary-fixed":"#002109","surface-bright":"#f8f9ff","on-secondary-fixed-variant":"#005323","on-tertiary-fixed-variant":"#314d3e","on-error-container":"#93000a","tertiary-fixed":"#caead6","secondary":"#006d30","on-primary-container":"#f7fff2"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-sm":"0.5rem","margin-desktop":"2rem","gutter-desktop":"1.5rem","space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter":"1rem","margin":"1rem","space-xl":"2rem","margin-tablet":"1.5rem"},fontFamily:{"body-lg":["Inter"],"label-sm":["Inter"],"headline-xl-mobile":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-lg":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"ledger-mono":["Inter"],"label-lg":["Inter"]},fontSize:{"body-lg":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",fontWeight:"600"}],"headline-xl-mobile":["1.5rem",{lineHeight:"2rem",fontWeight:"700"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",fontWeight:"600"}],"body-md":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-lg":["1.5rem",{lineHeight:"2rem",fontWeight:"600"}],"headline-xl":["2rem",{lineHeight:"2.5rem",fontWeight:"700"}],"body-sm":["0.75rem",{lineHeight:"1rem",fontWeight:"400"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",fontWeight:"600"}],"ledger-mono":["0.875rem",{lineHeight:"1.25rem",fontWeight:"600"}],"label-lg":["0.875rem",{lineHeight:"1.25rem",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex items-center justify-between px-margin-desktop"><div class="flex items-center gap-space-md"><img alt="NigitTriple Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCTH6L020VhcVwmNBdtqlcus9LwJaqMGfxthuze9CYnwtdALIlOFXBxSyM9NTtwOgVjFXdeeHR-KMCXzG02Es8xQGlHfy1sdgTq6EafkFJ6P3X0EpNBWmYtbEmjRzjv2bZV1uAgbQTR3mWKA8Kq-2FUqBfAovejZ_T7Eexpm4t_VzxtdfuUFfsdi83HW6lDvmGnRAOBnbgEH46BQus-whjPyFYGrp052DgMjPBmfpA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-on-surface leading-none">NigitTriple</span><span class="font-label-sm text-label-sm text-outline tracking-wider uppercase mt-space-xs">Admin Panel</span></div></div><div class="flex items-center gap-space-lg"><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-sm pl-space-md bg-surface-container-low py-space-xs px-space-sm rounded-lg"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Caleb</span><span class="font-label-sm text-label-sm text-primary uppercase font-bold leading-none">ADMIN</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex flex-col justify-between overflow-y-auto"><nav class="flex flex-col gap-space-xs p-space-md flex-1" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold rounded-lg"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><div class="flex flex-col"><a class="flex items-center justify-between px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="point-of-sale" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">desktop_windows</span><span>Point of Sale</span></div><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between px-space-md py-space-sm text-on-surface font-label-md text-label-md"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Products</span></div><span class="material-symbols-outlined text-[16px]">expand_less</span></div><div class="flex flex-col pl-space-xl gap-space-xs"><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="all-products" href="#">All Products</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="add-product" href="#">Add Product</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="categories" href="#">Categories</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="brands" href="#">Brands</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="inventory" href="#">Inventory</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="promotions" href="#">Promotions</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="delete-requests" href="#">Delete Requests</a></div></div><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between px-space-md py-space-sm text-primary font-label-md text-label-md font-semibold bg-surface-container-low rounded-lg"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">warehouse</span><span>Warehouse & Stock</span></div><span class="material-symbols-outlined text-[16px]">expand_less</span></div><div class="flex flex-col pl-space-xl gap-space-xs"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-secondary-container text-on-secondary-container font-semibold rounded-lg" data-path="stock-movements" href="#">Stock Movements</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="warehouse-locations" href="#">Warehouse Locations</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="batch-and-expiry-tracker" href="#">Batch & Expiry Tracker</a></div></div><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between px-space-md py-space-sm text-on-surface font-label-md text-label-md"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">calculate</span><span>Purchases & Costs</span></div><span class="material-symbols-outlined text-[16px]">expand_less</span></div><div class="flex flex-col pl-space-xl gap-space-xs"><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="purchase-orders" href="#">Purchase Orders</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="landed-cost-calculator" href="#">Landed Cost Calculator</a><a class="px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-body-sm text-body-sm" data-path="surcharge-rules" href="#">Surcharge Rules</a></div></div><a class="flex items-center justify-between px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="online-orders" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">shopping_cart</span><span>Online Orders</span></div><span class="material-symbols-outlined text-[16px]">chevron_right</span></a><a class="flex items-center justify-between px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="customers" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">group</span><span>Customers</span></div><span class="material-symbols-outlined text-[16px]">chevron_right</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="stock-approvals" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span>Stock Approvals</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Reports</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="reviews" href="#"><span class="material-symbols-outlined text-[20px]">star</span><span>Reviews</span></a></nav><div class="p-space-md border-t border-outline-variant/30"><a class="flex items-center gap-space-sm text-outline hover:text-primary transition-colors font-label-md text-label-md" data-path="store-front" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span>Back to store</span></a></div></aside><div class="pl-64"><main class="pt-16 min-h-screen bg-surface"><div class="w-full max-w-[1600px] mx-auto p-margin-desktop"><div class="flex flex-col w-full">
+<!-- Header & Primary Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Enterprise Logistics & ERP</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Live Sync</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Warehouse & Stock Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Monitor multi-location inventory levels, real-time transfers, and facility capacity.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-lowest text-on-surface rounded-lg shadow-sm hover:bg-surface-container-low transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">download</span>
+<span>Export Summary</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-lowest text-on-surface rounded-lg shadow-sm hover:bg-surface-container-low transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">tune</span>
+<span>Audit Adjustment</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>New Transfer Order</span>
+</button>
+</div>
+</div>
+<!-- Virtual Stat Board (5 Metric Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md mb-space-xl">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-outline">Total Inventory Value</span>
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">₦148,250,000</span>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="inline-flex items-center text-primary font-label-sm text-label-sm font-bold bg-secondary-container/40 px-space-xs py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+            +4.8%
+          </span>
+<span class="font-body-sm text-body-sm text-outline">vs last month</span>
+</div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-outline">Total Units in Stock</span>
+<span class="material-symbols-outlined text-primary text-[20px]">inventory</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">42,890 Units</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Across 3 active facilities</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-outline">Inbound in Transit</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">8 Purchase Orders</span>
+<span class="font-body-sm text-body-sm text-primary font-bold mt-space-xs">₦14,350,000 pending receipt</span>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-outline">Expiring Soon (<60 Days)</span>
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">14 Batches</span>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">Alert</span>
+</div>
+<span class="font-body-sm text-body-sm text-error font-medium mt-space-xs">₦2,840,000 at risk</span>
+</div>
+</div>
+<!-- Stat 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-outline">Damaged / Quarantine</span>
+<span class="material-symbols-outlined text-outline text-[20px]">safety_check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">18 Units</span>
+<span class="font-body-sm text-body-sm text-outline mt-space-xs">Pending disposal approval</span>
+</div>
+</div>
+</section>
+<!-- Warehouse Facilities & Capacity Utilization Grid -->
+<section class="mb-space-xl">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Facility Utilization & Node Status</h2>
+<span class="px-space-xs py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm">3 Locations</span>
+</div>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1" href="#">
+        Configure warehouse zones
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Facility 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-start justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Main Hub - WH01</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5">Central Distribution Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lagos Main Logistics Park</p>
+</div>
+<span class="px-space-xs py-1 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm font-semibold">Optimal</span>
+</div>
+<div class="mt-space-md space-y-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Capacity Used</span>
+<span class="font-bold text-on-surface">78%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-md mt-space-md bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl">
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Stored Units</span>
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">28,450</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Site Lead</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Emeka Obi</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Condition</span>
+<span class="font-body-sm text-body-sm text-on-surface">Ambient</span>
+</div>
+</div>
+</div>
+<!-- Facility 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-start justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Transit Depot - WH02</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5">Retail Transit Depot</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ikeja Fast Distribution Point</p>
+</div>
+<span class="px-space-xs py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">92% High Load</span>
+</div>
+<div class="mt-space-md space-y-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Capacity Used</span>
+<span class="font-bold text-error">92%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-error h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-md mt-space-md bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl">
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Stored Units</span>
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">9,120</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Site Lead</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">K. Danjuma</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Condition</span>
+<span class="font-body-sm text-body-sm text-error font-medium">Near Max</span>
+</div>
+</div>
+</div>
+<!-- Facility 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-start justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Specialty - WH03</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5">Cold Chain & Cosmetic Store</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Abuja Central Sub-Depot</p>
+</div>
+<span class="px-space-xs py-1 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm font-semibold">Normal</span>
+</div>
+<div class="mt-space-md space-y-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Capacity Used</span>
+<span class="font-bold text-on-surface">44%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 44%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-md mt-space-md bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl">
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Stored Units</span>
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">5,320</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Site Lead</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Amina S.</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-outline">Condition</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">18°C Controlled</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Toolbar (Matches visual structure from reference) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<!-- Search Input -->
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-space-sm bg-surface-container-lowest text-on-surface rounded-lg placeholder-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-low/40 transition-colors" placeholder="Search transfer ID, SKU, product, or warehouse..." type="text"/>
+</div>
+<!-- Select Dropdowns -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface pl-3 pr-8 py-space-sm rounded-lg text-body-md font-body-md hover:bg-surface-container-low transition-colors cursor-pointer focus:outline-none">
+<option>All Movements</option>
+<option>Internal Transfer</option>
+<option>Purchase Receipt</option>
+<option>Damage Write-off</option>
+<option>Cycle Count</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface pl-3 pr-8 py-space-sm rounded-lg text-body-md font-body-md hover:bg-surface-container-low transition-colors cursor-pointer focus:outline-none">
+<option>From: All Hubs</option>
+<option>Central Lagos Hub</option>
+<option>Ikeja Transit Depot</option>
+<option>Supplier Port Inbound</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface pl-3 pr-8 py-space-sm rounded-lg text-body-md font-body-md hover:bg-surface-container-low transition-colors cursor-pointer focus:outline-none">
+<option>To: All Destinations</option>
+<option>Ikeja Depot</option>
+<option>Abuja Cosmetic Facility</option>
+<option>Direct Retail POS</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface pl-3 pr-8 py-space-sm rounded-lg text-body-md font-body-md hover:bg-surface-container-low transition-colors cursor-pointer focus:outline-none">
+<option>All Statuses</option>
+<option>Completed</option>
+<option>In Transit</option>
+<option>Pending Verification</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<button class="p-space-sm bg-surface-container-lowest text-outline hover:text-on-surface rounded-lg hover:bg-surface-container-low transition-colors" title="Filter Preset" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stock Movement Audit Ledger Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/60 text-outline text-[11px] font-bold uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Movement ID & Date</th>
+<th class="py-space-sm px-space-md">Product & SKU</th>
+<th class="py-space-sm px-space-md">Type</th>
+<th class="py-space-sm px-space-md">Route (Source → Dest)</th>
+<th class="py-space-sm px-space-md text-right">Quantity</th>
+<th class="py-space-sm px-space-md text-right">Unit / Total Value</th>
+<th class="py-space-sm px-space-md">Operator</th>
+<th class="py-space-sm px-space-md text-center">Status</th>
+<th class="py-space-sm px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low text-body-md font-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">TRF-2025-0891</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 24, 2025 • 14:22</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Intesa Deo Spray Guarana 125ml modern black spray can cosmetic retail packaging isolated on clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAPCqrdEF0rX3joCgrrbhTfRA3OTlxUu8ZDBKNJlobniHiC4JzEcJ4S1ddgPs5Dszr_n9HIT1F32XhlgeZjoZGePuStIRbf1brh4DNjOgsfsGIxEb3868TfrItqHqVWqMSAblAYnCOmhAQpidIfqvoGrhXXsPZAJb27fSQSyRUAoicxaffS3LeWM1Bg5vc1zTasCjcqQbKLDecQ3R_nThtT2WRdwZgW6VxPR5k-w"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">INTESA DEO SPRAY GUARANA 125ML</span>
+<span class="font-body-sm text-body-sm text-outline">INTDEOSP-8317E • TOILETRIES</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                Internal Transfer
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Central Lagos</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_forward</span>
+<span class="text-on-surface-variant">Ikeja Depot</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">3,600 units</span>
+<span class="block font-body-sm text-body-sm text-outline">150 Cartons</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">₦27,180,000</span>
+<span class="block font-body-sm text-body-sm text-outline">₦7,550 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm flex items-center justify-center font-bold">CA</span>
+<span class="font-body-sm text-body-sm text-on-surface">Caleb A.</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Completed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" title="View Details" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" title="Print Waybill" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">TRF-2025-0890</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 24, 2025 • 11:05</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Intesa Shaving Foam Idratante 300ml bottle with green and black accents on product display studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Kz2Qift-_P2hbFO_KhbHhqP_i2_OVqmenMc2WZ2Ku15zw4Zz7MXyj5gaVrfYlSMEgayUnSaLSKDPwWisR4UqwWqqw5DOtgB1nFhTy6nj-9v9aIefsAovyXxl1C2lJOkxDG9vRXyaa-Fg4_9HCxMKLz_iCX6mgFsXA7gbr5dFpnYUPgEtJWnm_6Wnmab9Ep8fpt9RT7CSVkGUK_f3WOkWHUg5NxSGycsHHeoCcw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">INTESA SHAVING FOAM IDRATANTE 300ML</span>
+<span class="font-body-sm text-body-sm text-outline">INTSHAFO-A745B • SHAVING</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+                Purchase Receipt
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Apapa Port</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_forward</span>
+<span class="text-on-surface-variant">Central Lagos</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">2,400 units</span>
+<span class="block font-body-sm text-body-sm text-outline">100 Cartons</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">₦16,560,000</span>
+<span class="block font-body-sm text-body-sm text-outline">₦6,900 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">EO</span>
+<span class="font-body-sm text-body-sm text-on-surface">Emeka Obi</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                In Transit
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">TRF-2025-0888</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 23, 2025 • 17:40</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Malizia Uomo Deo Spray Skyline 150ml silver and blue aerosol packaging studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ5i9BWD9sCLbf50T_rDzI4HynOBmzy8qlJg8NT1-lHBawwPYbnHN2ej-rZVux0xQVOnHGe7zLgBLCYP88-1IBTbd7xIRhl1-zRsp0rsMoQ1NblRtp8KPHokjLM85JBqj0HUrTuBw7GDFLr_tS0JUrRKejaWdYnTcZetBsHyspK3ZbxX39Q2H93QQpr8gDxbkBNHSsLQbyqY_DwAoQMwGFlW5_DB1LcwpYeHFNAA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">MALIZIA UOMO DEO SPRAY SKYLINE 150ML</span>
+<span class="font-body-sm text-body-sm text-outline">MALUOMDE-2D985 • PERFUMERY</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                Internal Transfer
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Central Lagos</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_forward</span>
+<span class="text-on-surface-variant">Abuja Sub-Depot</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">1,200 units</span>
+<span class="block font-body-sm text-body-sm text-outline">50 Cartons</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">₦10,350,000</span>
+<span class="block font-body-sm text-body-sm text-outline">₦8,625 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm flex items-center justify-center font-bold">AS</span>
+<span class="font-body-sm text-body-sm text-on-surface">Amina S.</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Completed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">ADJ-2025-0104</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 23, 2025 • 09:15</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Intesa Deo Spray Sextreme 125ml black and vibrant red packaging premium deodorant cosmetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDitR1u0UCerrX4RixUQ6zzbut60MeUXtERhR5vZ08as4llWMn7AZvirRWl9MNWsLL1wRy75naw8p8V_jtS9ZqtYzjksSBeh6Rcd4i6Mx39guhmDzcwEL3kAc6olhhFL3qPl1kfU2SWbFIgBmZo5Mxhe2t9FFaKl0Xsa8uljAHizFbQyWWleCJJu4OafdCDL-6enqa5Jp4jxVMZkju1HWYztcZ1AfP1MU4kX0BIhg"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">INTESA DEO SPRAY SEXTREME 125ML</span>
+<span class="font-body-sm text-body-sm text-outline">INTDEOSP-4EB00 • TOILETRIES</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+                Damage Write-off
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Ikeja Depot</span>
+<span class="material-symbols-outlined text-[14px] text-error">arrow_forward</span>
+<span class="text-error font-medium">Quarantine Lock</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-error">-18 units</span>
+<span class="block font-body-sm text-body-sm text-outline">Damaged Box</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-error">₦135,900</span>
+<span class="block font-body-sm text-body-sm text-outline">₦7,550 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">KD</span>
+<span class="font-body-sm text-body-sm text-on-surface">K. Danjuma</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Pending Review
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">TRF-2025-0879</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 22, 2025 • 16:02</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Intesa Shower Shampoo Gel Ambra 250ml sleek amber transparent bottle with gold branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeJumdu1zzEYIEvgf-xVrkemXJoHkGAjegPA9ko5jJNzUB6a5F_dzzzeBb_M42-HTE8WDKTyforw-qOQDUcsGgzvO-R62PHzMRVfB4am4HDeJD_FsarSdTydOVdk13pKDhCu1jGNPlssVYmmPthak3ZpErvOOLftmFNPfYPzjrchEPQNXHLw5whV-8Pj-1C53yCymRnOV_XMO0STIM2dPYcP-yK5PcLoqiG2pG1g"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">INTESA SHOWER SHAMPOO GEL AMBRA 250ML</span>
+<span class="font-body-sm text-body-sm text-outline">INTSHOSH-4F719 • BODY CARE</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                Internal Transfer
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Central Lagos</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_forward</span>
+<span class="text-on-surface-variant">Ikeja Depot</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">1,800 units</span>
+<span class="block font-body-sm text-body-sm text-outline">75 Cartons</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">₦12,420,000</span>
+<span class="block font-body-sm text-body-sm text-outline">₦6,900 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm flex items-center justify-center font-bold">CA</span>
+<span class="font-body-sm text-body-sm text-on-surface">Caleb A.</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Completed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">TRF-2025-0872</span>
+<span class="font-body-sm text-body-sm text-outline">Oct 21, 2025 • 13:45</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container" data-alt="Malizia Deo Spray Women Vanilla 100ml delicate feminine pastel aesthetic cosmetics bottle packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArdrcbxoD0Q8ItRmo7nX1qioSMfw2mBkVMncXOPtmG1gr5RN9jqflDk1YBd3hLuVxqTLjVpvd6-0BDAn0uVz3oV6AeOIm7XD9EQpaq6Na096v0XtwZMj-1Jx20lLN6hMBruqyEGzHs6Tp8v_U32fBcOCLo81B4FcN4HYc0shc4t7Qygxi5c4UDzQoyPaebG_La5ZgbIym07uScbgO0b8v4FcLUtEGUFgzYghDobA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">MALIZIA DEO SPRAY WOMEN VANILLA 100ML</span>
+<span class="font-body-sm text-body-sm text-outline">MALDEOSP-68513 • FEMININE DEO</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+                Purchase Receipt
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Overseas Import</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_forward</span>
+<span class="text-on-surface-variant">Central Lagos</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">4,000 units</span>
+<span class="block font-body-sm text-body-sm text-outline">200 Cartons</span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<span class="font-ledger-mono text-ledger-mono font-bold text-on-surface">₦24,000,000</span>
+<span class="block font-body-sm text-body-sm text-outline">₦6,000 base</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">EO</span>
+<span class="font-body-sm text-body-sm text-on-surface">Emeka Obi</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Completed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Footer / Pagination -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-outline">
+<span>Showing <strong class="text-on-surface">1 - 6</strong> of <strong class="text-on-surface">148</strong> stock movements</span>
+<span class="text-surface-container-high">|</span>
+<span>Rows per page: <strong>10</strong></span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors disabled:opacity-30" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors disabled:opacity-30" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold flex items-center justify-center" type="button">1</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">15</button>
+<button class="p-1.5 rounded-lg text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+</div>
+</div>
+</div>
+</div></div></main></div></body></html>

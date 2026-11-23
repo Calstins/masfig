@@ -41,7 +41,7 @@ const navItems: NavItem[] = [
   { label: 'Media Library', href: '/admin/media', icon: ImagesIcon },
   { label: 'Settings', href: '/admin/settings', icon: Settings, adminOnly: true },
   { label: 'Hero slides', href: '/admin/hero-slides', icon: GalleryHorizontal, adminOnly: true },
-  { label: 'Tracking', href: '/admin/tracking', icon: Activity, adminOnly: true },
+  { label: 'Tracking & stats', href: '/admin/tracking', icon: Activity, adminOnly: true },
   { label: 'Facebook feed', href: '/admin/social', icon: Share2, adminOnly: true },
   { label: 'Hero text (fallback)', href: '/admin/hero', icon: Image, adminOnly: true },
   { label: 'Equipment Grid', href: '/admin/equipment-grid', icon: Grid3X3, adminOnly: true },

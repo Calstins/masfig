@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { ThemeLoader } from '@/components/theme-loader'
 import { ConsentAndTags } from '@/components/consent-and-tags'
+import { SiteStats } from '@/components/site-stats'
 import { SITE_URL } from '@/lib/site'
 import { getSiteData } from '@/lib/server-data'
 import { EMPTY_TRACKING } from '@/lib/types'
@@ -44,6 +45,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <ThemeLoader />
         {children}
         <ConsentAndTags initial={tracking} />
+        <SiteStats />
       </body>
     </html>
   )

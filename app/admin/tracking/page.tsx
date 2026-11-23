@@ -3,6 +3,7 @@
 import { useEffect, useState, FormEvent } from 'react'
 import { FormSection, Field, Input, SaveMessage, PageHeader } from '@/components/admin/form-components'
 import { btnPrimary } from '@/components/admin/ui'
+import { TrafficStats } from '@/components/admin/traffic-stats'
 import { ApiError, api, rebuildNote } from '@/lib/admin-api'
 import { EMPTY_TRACKING, type TrackingConfig } from '@/lib/types'
 
@@ -54,8 +55,12 @@ export default function TrackingPage() {
   const active = [cfg.gtmId && 'Tag Manager', cfg.ga4Id && 'Google Analytics', cfg.metaPixelId && 'Meta Pixel', cfg.googleAdsId && 'Google Ads', cfg.clarityId && 'Clarity'].filter(Boolean) as string[]
 
   return (
+    <div className="space-y-8">
+      <PageHeader title="Tracking & statistics" description="See how many people visit, click WhatsApp and ask for quotes. Below that, paste your tag IDs and they go live on the site." />
+      <TrafficStats />
     <form onSubmit={save} className="space-y-6">
-      <PageHeader title="Tracking & verification" description="Paste your tag IDs here and they go live on the site. Nothing is installed for a tool whose box is empty, and nothing ever loads on the admin pages." />
+      <h2 className="text-lg font-semibold text-gray-800">Tags, advertising &amp; verification</h2>
+      <p className="-mt-4 text-sm text-gray-500">Nothing is installed for a tool whose box is empty, and nothing ever loads on the admin pages.</p>
 
       <div className="rounded-xl border border-gray-100 bg-white p-5 text-sm text-gray-600">
         <p className="font-medium text-gray-800 mb-1">Currently on the site</p>
@@ -92,5 +97,6 @@ export default function TrackingPage() {
       {msg && <SaveMessage message={msg.text} type={msg.type} />}
       <button className={btnPrimary} disabled={busy}>{busy ? 'Saving…' : 'Save tracking settings'}</button>
     </form>
+    </div>
   )
 }

@@ -26,13 +26,9 @@ export function Navbar({ settings }: { settings: SiteSettings }) {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-[0_1px_0_rgba(35,31,32,.08)]' : 'bg-white/60 backdrop-blur-sm'}`}>
       <div className="container-x flex h-[4.5rem] items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-3" aria-label={`${settings.siteName} home`}>
+        <Link href="/" className="flex items-center" aria-label={`${settings.siteName} home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-mark.png" alt="" width={44} height={44} className="h-11 w-11 object-contain" />
-          <span className="leading-none">
-            <span className="block font-[family-name:var(--font-display)] text-xl font-extrabold tracking-tight text-ink">MASFIG</span>
-            <span className="block text-[11px] italic text-muted-foreground">…art of service</span>
-          </span>
+          <img src="/logo-full.png" alt={settings.siteName} width={1260} height={300} className="h-11 sm:h-14 w-auto object-contain" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {LINKS.map((l) => (
