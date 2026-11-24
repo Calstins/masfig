@@ -7,7 +7,9 @@ type Evt =
   | "call_click"
   | "email_click"
   | "quote_submit"
-  | "product_view";
+  | "product_view"
+  | "black_friday_page_view"
+  | "campaign_cta_click";
 
 interface Tags {
   gtag?: (...a: unknown[]) => void;
@@ -17,7 +19,7 @@ interface Tags {
 }
 
 /** Meta standard events matching each action, so Ads Manager can optimise for them. */
-const META_EVENT: Record<Evt, string> = {
+const META_EVENT: Partial<Record<Evt, string>> = {
   quote_submit: "Lead",
   whatsapp_click: "Contact",
   call_click: "Contact",
@@ -117,8 +119,11 @@ export function track(
     lastMail = now;
   }
   if (event !== "quote_submit") {
-    const label = event === "product_view" ? params.product : params.location;
-    collect(event, label === undefined ? undefined : String(label));
+    // campaign page views and CTA clicks only go to the ad/analytics tools, not to MASFIG's own counters
+    if (event !== "black_friday_page_view" && event !== "campaign_cta_click") {
+      const label = event === "product_view" ? (params.product_name ?? params.product) : params.location;
+      collect(event, label === undefined ? undefined : String(label));
+    }
   }
   const w = window as unknown as Tags;
   w.dataLayer = w.dataLayer || [];
@@ -126,12 +131,12 @@ export function track(
   try {
     // GA4 direct (gtag pushes to the same data layer, so GTM containers can still read it)
     if (w.gtag) w.gtag("event", event, params);
-    if (w.fbq)
+    if (w.fbq && META_EVENT[event])
       w.fbq(
         "track",
         META_EVENT[event],
         event === "product_view"
-          ? { content_name: String(params.product ?? "") }
+          ? { content_name: String(params.product_name ?? params.product ?? "") }
           : {},
       );
     if (event === "quote_submit" && w.gtag && w.__masfigAds?.label)
