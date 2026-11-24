@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { getApiUrl } from "@/lib/api";
 import { captureUtm, trackWhatsappLinks } from "@/lib/track";
 import { EMPTY_TRACKING, type TrackingConfig } from "@/lib/types";
 
-const KEY = "masfig_consent";
 
 const hasAnyTag = (t: TrackingConfig) =>
   !!(t.gtmId || t.ga4Id || t.metaPixelId || t.googleAdsId || t.clarityId);
@@ -16,8 +14,7 @@ const hasAnyTag = (t: TrackingConfig) =>
 /**
  * Loads the tools configured in Admin > Tracking. The values baked in at build time are used straight away; a small
  * request then picks up changes saved in the admin since the last build, so edits show on the live site within
- * about a minute without waiting for a redeploy. Nothing loads before the visitor accepts (unless the admin turned
- * "ask for consent" off), and nothing ever loads on /admin.
+ * about a minute without waiting for a redeploy. * and nothing ever loads on /admin.
  */
 export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
   const pathname = usePathname();
@@ -25,18 +22,9 @@ export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
     ...EMPTY_TRACKING,
     ...initial,
   });
-  const [choice, setChoice] = useState<"granted" | "denied" | null>(null);
-  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     captureUtm();
-    try {
-      const v = localStorage.getItem(KEY);
-      if (v === "granted" || v === "denied") setChoice(v); // eslint-disable-line react-hooks/set-state-in-effect -- storage is only readable after mount
-    } catch {
-      /* storage blocked */
-    }
-    setReady(true);
     fetch(getApiUrl("/sections/tracking"))
       .then((r) => (r.ok ? r.json() : null))
       .then((d: Partial<TrackingConfig> | null) => {
@@ -50,17 +38,7 @@ export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
 
   if (pathname?.startsWith("/admin") || !hasAnyTag(cfg)) return null;
 
-  const decide = (v: "granted" | "denied") => {
-    setChoice(v);
-    try {
-      localStorage.setItem(KEY, v);
-    } catch {
-      /* ignore */
-    }
-  };
-  const allowed = cfg.requireConsent
-    ? choice === "granted"
-    : choice !== "denied";
+  const allowed = true; // tags always load (no cookie banner)
 
   return (
     <>
@@ -106,37 +84,6 @@ export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
         `}</Script>
       )}
 
-      {cfg.requireConsent && ready && choice === null && (
-        <div
-          role="dialog"
-          aria-label="Cookie consent"
-          className="fixed bottom-0 inset-x-0 z-[60] p-3 md:p-4"
-        >
-          <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-white p-4 shadow-xl flex flex-col sm:flex-row gap-3 sm:items-center">
-            <p className="text-sm text-ink-soft flex-1">
-              We use cookies to measure visits and improve our site. You can
-              accept or decline analytics and advertising cookies.{" "}
-              <Link href="/privacy/" className="underline">
-                Privacy
-              </Link>
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => decide("denied")}
-                className="rounded-full px-4 py-2 text-sm text-ink-soft hover:bg-surface"
-              >
-                Decline
-              </button>
-              <button
-                onClick={() => decide("granted")}
-                className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white"
-              >
-                Accept
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

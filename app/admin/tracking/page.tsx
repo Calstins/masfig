@@ -64,7 +64,7 @@ export default function TrackingPage() {
 
       <div className="rounded-xl border border-gray-100 bg-white p-5 text-sm text-gray-600">
         <p className="font-medium text-gray-800 mb-1">Currently on the site</p>
-        {active.length ? <p>{active.join(' · ')}{cfg.requireConsent ? ' — after the visitor accepts cookies.' : ' — loads for everyone who has not declined.'}</p> : <p>No tracking tools set up yet.</p>}
+        {active.length ? <p>{active.join(' · ')}{' — loads for every visitor.'}</p> : <p>No tracking tools set up yet.</p>}
         <p className="mt-2 text-xs text-gray-400">Avoid double counting: if Google Analytics or the Meta Pixel is installed inside Tag Manager, leave their boxes below empty.</p>
       </div>
 
@@ -85,13 +85,6 @@ export default function TrackingPage() {
         {text('bingSiteVerification', 'Bing Webmaster code', '', 'Bing Webmaster Tools → Add site → HTML meta tag (msvalidate.01).')}
         {text('facebookDomainVerification', 'Facebook domain verification code', '', 'Meta Business Settings → Brand safety → Domains → Meta-tag verification.')}
         <p className="text-xs text-gray-400">Verification codes sit in the page source, so they take effect after the next site rebuild (started automatically when you save, if the deploy hook is set).</p>
-      </FormSection>
-
-      <FormSection label="Cookie consent">
-        <label className="flex items-start gap-3 text-sm text-gray-700">
-          <input type="checkbox" className="mt-1 h-4 w-4 accent-[var(--color-primary)]" checked={cfg.requireConsent} onChange={(e) => set('requireConsent', e.target.checked)} />
-          <span><span className="font-medium">Ask visitors before loading analytics and advertising tags</span><br /><span className="text-xs text-gray-400">Recommended. Shows a cookie banner and loads tags only after “Accept”. Turn off only on legal advice.</span></span>
-        </label>
       </FormSection>
 
       {msg && <SaveMessage message={msg.text} type={msg.type} />}
