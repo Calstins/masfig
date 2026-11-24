@@ -35,7 +35,7 @@ export interface CampaignProduct {
   matchNames: string[]
   /** Set this to a catalogue product slug to force the match (overrides matchNames). */
   productSlug?: string
-  /** Optional photo placed in public/assets/black-friday/ (used before the catalogue image). */
+  /** Product photo in public/assets/black-friday/ (used before any catalogue image). Taken from the MASFIG catalogue. */
   imageOverride?: string
   previousPrice: number
   promoPrice: number
@@ -67,6 +67,7 @@ export const PRODUCTS: Record<ProductKey, CampaignProduct> = {
     name: 'Single Shelves',
     plural: 'Single Shelves',
     matchNames: ['Single Shelves', 'Single Shelf'],
+    imageOverride: 'single-shelves.jpg',
     previousPrice: 110_000,
     promoPrice: 100_000,
     minQty: 10,
@@ -97,6 +98,7 @@ export const PRODUCTS: Record<ProductKey, CampaignProduct> = {
     name: 'Double Shelves',
     plural: 'Double Shelves',
     matchNames: ['Double Shelves', 'Double Shelf'],
+    imageOverride: 'double-shelves.jpg',
     previousPrice: 160_000,
     promoPrice: 150_000,
     minQty: 10,
@@ -127,6 +129,7 @@ export const PRODUCTS: Record<ProductKey, CampaignProduct> = {
     name: 'Warehouse Rack',
     plural: 'Warehouse Racks',
     matchNames: ['Warehouse Rack', 'Warehouse Racks', 'Warehouse Racking'],
+    imageOverride: 'warehouse-rack.jpg',
     previousPrice: 220_000,
     promoPrice: 195_000,
     minQty: 10,
