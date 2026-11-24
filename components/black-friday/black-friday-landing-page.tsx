@@ -15,12 +15,12 @@ import { CampaignPageTracker } from './campaign-page-tracker'
 import { CampaignProvider } from './campaign-provider'
 import { CampaignStickyCta } from './campaign-sticky-cta'
 import { CampaignFaq } from './campaign-faq'
-import { FacebookVideoFrame } from './facebook-video-frame'
+import { CampaignVideo } from './campaign-video'
 import { ProductBenefits } from './product-benefits'
 import { PurchaseActivityToast } from './purchase-activity-toast'
 import { WhatsappTestimonialGallery, type Shot } from './whatsapp-testimonial-gallery'
 import { WhatsappCta } from './campaign-cta'
-import { CAMPAIGN, FACEBOOK_VIDEO_URL, FAQ, PRODUCTS, naira, type CampaignProduct, type ProductKey } from './campaign-data'
+import { CAMPAIGN, FAQ, VIDEO, PRODUCTS, naira, type CampaignProduct, type ProductKey } from './campaign-data'
 
 const ASSET_DIR = 'assets/black-friday'
 /** True when the site was built after the deadline, so the static FAQ markup never advertises an expired price. */
@@ -80,6 +80,8 @@ export async function BlackFridayLandingPage({ productKey }: { productKey: Produ
   const [{ settings, footer }, match] = await Promise.all([getSiteData(), matchCatalogProduct(p)])
   const image = heroImage(p, match)
   const shots = findScreenshots(p)
+  const videoSrc = publicFile(`${ASSET_DIR}/${VIDEO.file}`)
+  const videoPoster = publicFile(`${ASSET_DIR}/${VIDEO.poster}`)
   const description = match ? (match.summary || plainText(match.description, 400)) || p.description : p.description
   const facts = match ? ([['Dimensions', match.dimensions], ['Capacity', match.capacity], ['Warranty', match.warranty]] as [string, string][]).filter(([, v]) => v) : []
   const faq = faqLd(FAQ.map((f, i) => ({ id: i, question: f.question, answer: f.answer(p, ENDED_AT_BUILD) })))
@@ -101,7 +103,7 @@ export async function BlackFridayLandingPage({ productKey }: { productKey: Produ
           <WhatsappTestimonialGallery shots={shots}>
             <WhatsappCta placement="testimonial" />
           </WhatsappTestimonialGallery>
-          <FacebookVideoFrame url={FACEBOOK_VIDEO_URL} />
+          {videoSrc && <CampaignVideo src={videoSrc} poster={videoPoster ?? undefined} />}
           <CampaignFaq p={p} />
           <CampaignOrderCta />
         </main>

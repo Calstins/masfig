@@ -16,8 +16,8 @@ export const CAMPAIGN = {
   maxQty: 5000,
 } as const
 
-/** Public Facebook post shown in the video section. */
-export const FACEBOOK_VIDEO_URL = 'https://web.facebook.com/share/p/1CnthwpFqy/'
+/** Campaign video, hosted with the site. Files live in public/assets/black-friday/ (Cloudflare Pages allows up to 25 MiB per file). */
+export const VIDEO = { file: 'masfig-video.mp4', poster: 'masfig-video-poster.jpg' }
 
 export interface ActivityEntry { quantity: number; place: string }
 /** A verified purchase record, for when a backend supplies real data. Nothing else may be shown as a real purchase. */
