@@ -68,7 +68,8 @@ export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
         </>
       )}
 
-      {allowed && cfg.metaPixelId && (
+      {/* the build-time pixel is already in the page <head>; only load here when the ID was changed in the admin since the last build */}
+      {allowed && cfg.metaPixelId && cfg.metaPixelId !== initial.metaPixelId && (
         <Script id="meta-pixel" strategy="afterInteractive">{`
           !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;

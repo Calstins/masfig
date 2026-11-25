@@ -44,7 +44,8 @@ export async function apiFetch(path: string, options: ApiOptions = {}): Promise<
     finalHeaders['Authorization'] = `Bearer ${token}`
   }
 
-  return fetch(getApiUrl(path), { ...rest, headers: finalHeaders })
+  // Admin data must always be fresh: never let the browser or a CDN answer from a stored copy.
+  return fetch(getApiUrl(path), { cache: 'no-store', ...rest, headers: finalHeaders })
 }
 
 /**

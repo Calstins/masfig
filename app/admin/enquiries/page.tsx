@@ -32,7 +32,18 @@ export default function EnquiriesPage() {
   useEffect(load, [load])
 
   async function toggle(e: Enquiry) {
-    try { await api(`/admin/enquiries/${e.id}/handled`, { method: 'POST', json: { handled: e.status === 'NEW' } }); load() } catch (x) { setErr((x as Error).message) }
+    try {
+      await api(`/admin/enquiries/${e.id}/handled`, { method: 'POST', json: { handled: e.status === 'NEW' } })
+      // Show the change at once; with a New/Handled filter the row leaves this list.
+      setData((d) => d && { items: status ? d.items.filter((i) => i.id !== e.id) : d.items.map((i) => (i.id === e.id ? { ...i, status: i.status === 'NEW' ? 'HANDLED' : 'NEW' } : i)), total: status ? Math.max(0, d.total - 1) : d.total })
+    } catch (x) { setErr((x as Error).message) }
+  }
+
+  function dropRows(ids: number[]) {
+    const left = (data?.items ?? []).filter((i) => !ids.includes(i.id))
+    setData((d) => d && { items: left, total: Math.max(0, d.total - ids.length) })
+    setPicked([]); setConfirm(null)
+    if (!left.length) load() // page emptied: pull the next page, or the empty state
   }
 
   async function remove(ids: number[]) {
@@ -40,8 +51,11 @@ export default function EnquiriesPage() {
     try {
       if (ids.length === 1) await api(`/admin/enquiries/${ids[0]}`, { method: 'DELETE' })
       else await api('/admin/enquiries/delete-many', { method: 'POST', json: { ids } })
-      load()
-    } catch (x) { setErr((x as Error).message); setConfirm(null) } finally { setBusy(false) }
+      dropRows(ids)
+    } catch (x) {
+      // Already gone (for example deleted in another tab): just remove it from the list.
+      if ((x as { status?: number }).status === 404) { dropRows(ids) } else { setErr((x as Error).message); setConfirm(null) }
+    } finally { setBusy(false) }
   }
   const toggleOne = (id: number) => setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]))
   const pageIds = data?.items.map((i) => i.id) ?? []
