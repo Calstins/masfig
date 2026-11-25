@@ -48,7 +48,10 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const tracking = { ...EMPTY_TRACKING, ...((await getSiteData()).tracking ?? {}) }
+  const saved = { ...EMPTY_TRACKING, ...((await getSiteData()).tracking ?? {}) }
+  // The Admin > Tracking value wins. If the build could not read one, fall back to the build variable, then to MASFIG's own pixel,
+  // so the pixel is always present in the page HTML for Meta's setup tool and crawlers.
+  const tracking = { ...saved, metaPixelId: saved.metaPixelId || process.env.NEXT_PUBLIC_META_PIXEL_ID || '1158961047062261' }
   const pixel = /^\d{10,18}$/.test(tracking.metaPixelId) ? tracking.metaPixelId : ''
   return (
     <html lang="en-NG" className="bg-background" suppressHydrationWarning>
