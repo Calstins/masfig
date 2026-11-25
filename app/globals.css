@@ -150,3 +150,30 @@
 }
 .hs-fade { animation: hsUp .6s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .hs-fade { animation: none; } }
+
+/* ---- Black Friday landing pages ---- */
+@keyframes bfTruck { 0% { transform: translateX(-130%); } 100% { transform: translateX(420%); } }
+@keyframes bfRoad { to { background-position: -48px 0; } }
+@keyframes bfRing { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes bfPop { from { opacity: 0; transform: translateY(12px) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes bfShine { 0% { transform: translateX(-130%) skewX(-20deg); } 55%, 100% { transform: translateX(260%) skewX(-20deg); } }
+@keyframes bfDot { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
+@keyframes bfWiggle { 0%, 88%, 100% { transform: rotate(0); } 91% { transform: rotate(-14deg); } 94% { transform: rotate(11deg); } 97% { transform: rotate(-6deg); } }
+@keyframes bfGlow { 0%, 100% { box-shadow: 0 10px 25px -8px rgba(31,168,85,.55), 0 0 0 0 rgba(31,168,85,.55); } 60% { box-shadow: 0 10px 25px -8px rgba(31,168,85,.55), 0 0 0 14px rgba(31,168,85,0); } }
+@keyframes bfSlideIn { from { opacity: 0; transform: translateX(24px) scale(.95); } to { opacity: 1; transform: none; } }
+.bf-truck { animation: bfTruck 6.5s linear infinite; }
+.bf-road { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.7) 0 22px, transparent 22px 48px); animation: bfRoad .7s linear infinite; }
+.bf-chip { animation: bfPop .5s cubic-bezier(.2,.8,.2,1) both; }
+.bf-shine { position: relative; overflow: hidden; }
+.bf-shine::after { content: ''; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); animation: bfShine 3.6s ease-in-out infinite; pointer-events: none; }
+.bf-glow { animation: bfGlow 2.4s ease-out infinite; }
+.bf-ringbox { position: relative; isolation: isolate; }
+.bf-ringbox::before { content: ''; position: absolute; inset: 0; border-radius: 9999px; background: #1fa855; animation: bfRing 2s ease-out infinite; z-index: -1; }
+.bf-wiggle { animation: bfWiggle 5s ease-in-out infinite; transform-origin: 50% 60%; }
+.bf-dot { animation: bfDot 1s ease-in-out infinite; }
+.bf-slide { animation: bfSlideIn .45s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .bf-truck, .bf-road, .bf-chip, .bf-shine::after, .bf-glow, .bf-ringbox::before, .bf-wiggle, .bf-dot, .bf-slide { animation: none; }
+  .bf-truck { transform: translateX(150%); }
+  .bf-shine::after { display: none; }
+}

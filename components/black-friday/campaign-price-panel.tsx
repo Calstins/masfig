@@ -1,6 +1,7 @@
 'use client'
 
-import { naira, totals } from './campaign-data'
+import { Truck } from 'lucide-react'
+import { DELIVERY, deliveryCities, naira, totals } from './campaign-data'
 import { useCampaign } from './campaign-provider'
 
 /** Price block. While the offer is live it shows the promotion with the 10-piece condition beside it; after the deadline it never shows the promotional price as active. */
@@ -21,8 +22,12 @@ export function CampaignPricePanel() {
         <span className="font-display text-5xl font-extrabold tracking-tight text-white sm:text-6xl">{naira(p.promoPrice)}</span>
         <span className="text-lg font-bold text-white/85">per unit</span>
       </p>
-      <p className="mt-3 inline-flex items-center rounded-lg bg-[#ff6b2c] px-3 py-1.5 text-sm font-extrabold uppercase tracking-wide text-ink">
+      <p className="bf-shine mt-3 inline-flex items-center rounded-lg bg-[#ff6b2c] px-3 py-1.5 text-sm font-extrabold uppercase tracking-wide text-ink">
         Minimum order: {p.minQty} pieces
+      </p>
+      <p className="mt-3 flex items-start gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold text-white ring-1 ring-white/20">
+        <Truck aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-[#5be08a]" />
+        <span>Free delivery in {deliveryCities()} on {DELIVERY.freeMinQty}+ pieces</span>
       </p>
       <ul className="mt-4 space-y-1.5 text-white/85">
         <li>Promotional price applies when you order {p.minQty} or more pieces.</li>

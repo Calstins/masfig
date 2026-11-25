@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react'
 import type { CampaignProduct } from './campaign-data'
 import { ActiveOnly } from './active-only'
+import { Reveal } from '@/components/reveal'
 
 export function ProductBenefits({ p, description, facts, children }: { p: CampaignProduct; description: string; facts: [string, string][]; children?: React.ReactNode }) {
   return (
@@ -20,12 +21,12 @@ export function ProductBenefits({ p, description, facts, children }: { p: Campai
           <div className="mt-8">{children}</div>
         </div>
         <ul className="space-y-4">
-          {p.benefits.map((b) => {
+          {p.benefits.map((b, i) => {
             const li = (
-            <li key={b.title} className="flex gap-4 rounded-2xl border border-border bg-surface p-5">
+            <Reveal as="li" key={b.title} delay={i * 90} from="right" className="flex gap-4 rounded-2xl border border-border bg-surface p-5">
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white"><Check aria-hidden className="h-4 w-4" /></span>
               <div><h3 className="text-lg font-bold text-ink">{b.title}</h3><p className="mt-1 text-ink-soft">{b.text}</p></div>
-            </li>
+            </Reveal>
             )
             return b.promo ? <ActiveOnly key={b.title}>{li}</ActiveOnly> : li
           })}

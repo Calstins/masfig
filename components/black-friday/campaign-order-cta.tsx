@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
-import { CAMPAIGN, naira, totals } from './campaign-data'
+import { CAMPAIGN, DELIVERY, deliveryCities, naira, totals } from './campaign-data'
 import { useCampaign } from './campaign-provider'
 import { WhatsappCta } from './campaign-cta'
 
@@ -58,6 +58,7 @@ export function CampaignOrderCta({ children }: { children?: React.ReactNode }) {
                 <Row k="Original total" v={naira(t.original)} strike />
                 <Row k="Promotional total" v={naira(t.promo)} big />
                 <Row k="You save" v={naira(t.savings)} green />
+                {t.qty >= DELIVERY.freeMinQty && <Row k="Delivery" v={`Free in ${deliveryCities()}`} green />}
               </dl>
             </>
           ) : (

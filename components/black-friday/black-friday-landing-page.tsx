@@ -17,6 +17,8 @@ import { CampaignStickyCta } from './campaign-sticky-cta'
 import { CampaignFaq } from './campaign-faq'
 import { CampaignVideo } from './campaign-video'
 import { ProductBenefits } from './product-benefits'
+import { FreeDeliveryBanner } from './free-delivery-banner'
+import { FloatingWhatsapp } from './floating-whatsapp'
 import { PurchaseActivityToast } from './purchase-activity-toast'
 import { WhatsappTestimonialGallery, type Shot } from './whatsapp-testimonial-gallery'
 import { WhatsappCta } from './campaign-cta'
@@ -97,6 +99,7 @@ export async function BlackFridayLandingPage({ productKey }: { productKey: Produ
         <Navbar settings={settings} />
         <main className="pt-[4.5rem]">
           <BlackFridayHero p={p} image={image} />
+          <FreeDeliveryBanner />
           <ProductBenefits p={p} description={description} facts={facts}>
             <WhatsappCta placement="benefits" />
           </ProductBenefits>
@@ -110,6 +113,7 @@ export async function BlackFridayLandingPage({ productKey }: { productKey: Produ
         <Footer data={footer} settings={settings} />
         <CampaignStickyCta />
         <PurchaseActivityToast />
+        <FloatingWhatsapp />
         <CampaignPageTracker />
       </div>
     </CampaignProvider>

@@ -6,7 +6,7 @@ import { track } from '@/lib/track'
 import { CAMPAIGN, whatsappMessage } from './campaign-data'
 import { useCampaign } from './campaign-provider'
 
-export type Placement = 'hero' | 'benefits' | 'testimonial' | 'footer' | 'sticky'
+export type Placement = 'hero' | 'benefits' | 'testimonial' | 'footer' | 'sticky' | 'floating' | 'delivery'
 
 /** The WhatsApp order button. The link and message follow the chosen quantity, and switch to "ask for current pricing" once the offer is over. */
 export function WhatsappCta({ placement, className = '' }: { placement: Placement; className?: string }) {
@@ -27,7 +27,7 @@ export function WhatsappCta({ placement, className = '' }: { placement: Placemen
           location: `black-friday-${placement}`,
         })
       }
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#1fa855] px-7 py-4 text-base font-extrabold uppercase tracking-wide text-white shadow-lg shadow-black/30 transition hover:bg-[#178a45] focus-visible:outline-offset-4 ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#1fa855] px-7 py-4 text-base font-extrabold uppercase tracking-wide text-white transition hover:bg-[#178a45] ${live ? 'bf-glow' : 'shadow-lg shadow-black/30'} focus-visible:outline-offset-4 ${className}`}
     >
       <MessageCircle aria-hidden className="h-5 w-5 shrink-0" />
       {live ? 'Order via WhatsApp' : 'Ask for current pricing'}

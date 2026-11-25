@@ -20,7 +20,17 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: '/' },
     openGraph: { type: 'website', siteName: settings.siteName, locale: 'en_NG', title, description, url: '/', images: [{ url: settings.logo }] },
     twitter: { card: 'summary_large_image', title, description },
-    icons: { icon: '/favicon.png' },
+    icons: {
+      // Google shows the icon in search results and ads: it needs a square image in multiples of 48px, plus /favicon.ico
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
+        { url: '/icon-96.png', sizes: '96x96', type: 'image/png' },
+        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      ],
+      shortcut: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+    },
     verification: {
       google: tracking.googleSiteVerification || undefined,
       other: {

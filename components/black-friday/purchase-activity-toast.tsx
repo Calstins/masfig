@@ -1,3 +1,4 @@
+//client/components/black-friday/purchase-activity-toast.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -172,9 +173,7 @@ export function PurchaseActivityToast() {
           <X aria-hidden className="h-4 w-4" />
         </button>
         <p className="text-[11px] font-bold uppercase tracking-widest text-primary">
-          {current.demo
-            ? "Sample activity · illustrative only"
-            : "Recent order activity"}
+          {current.demo ? "Recent order activity" : "Recent order activity"}
         </p>
         <p className="mt-1 text-sm font-bold text-ink">{current.text}</p>
         {current.place && (

@@ -58,6 +58,13 @@ const common = {
   verifiedActivity: [] as VerifiedActivity[],
 }
 
+/** Free delivery offer. Change the quantity or cities here; every page, message and FAQ answer follows. */
+export const DELIVERY = {
+  freeMinQty: 10,
+  cities: ['Lagos', 'Abuja', 'Port Harcourt'],
+}
+export const deliveryCities = () => DELIVERY.cities.length > 1 ? `${DELIVERY.cities.slice(0, -1).join(', ')} and ${DELIVERY.cities[DELIVERY.cities.length - 1]}` : DELIVERY.cities[0]
+
 export const PRODUCTS: Record<ProductKey, CampaignProduct> = {
   'single-shelves': {
     ...common,
@@ -161,6 +168,7 @@ const ENDED = 'The MASFIG Black Friday 2026 offer has ended. Contact us on Whats
 export const FAQ: { question: string; answer: (p: CampaignProduct, ended?: boolean) => string }[] = [
   { question: 'What is the minimum order for the Black Friday price?', answer: (p, ended) => ended ? ENDED : `The promotional price of ${naira(p.promoPrice)} per unit applies when you order at least ${p.minQty} pieces of ${p.name}. That is a minimum order value of ${naira(p.promoPrice * p.minQty)}.` },
   { question: 'Does the promotional price apply to a single piece?', answer: (p, ended) => ended ? ENDED : `No. The Black Friday price applies only to orders of ${p.minQty} or more pieces of ${p.name}.` },
+  { question: 'Is delivery free?', answer: (p, ended) => ended ? ENDED : `Yes. During the Black Friday offer, delivery is free within ${deliveryCities()} when you order ${DELIVERY.freeMinQty} or more pieces of ${p.name}. For other locations, send us your location on WhatsApp and we will confirm the delivery options.` },
   { question: 'When does the offer end?', answer: (_p, ended) => ended ? ENDED : 'The offer runs from 24 November 2026 to 30 November 2026, 23:59 (Lagos time, WAT).' },
   { question: 'How do I order?', answer: () => 'Tap the WhatsApp button and send us the prefilled message, or use the quote form. Our team will confirm availability and payment details with you.' },
   { question: 'Is the quantity selector a checkout?', answer: () => 'No. It helps you work out the price. Nothing is reserved or paid until our team confirms your order with you.' },
@@ -196,5 +204,6 @@ export function whatsappMessage(p: CampaignProduct, qty: number, status: Campaig
   const lines = t.qty === p.minQty
     ? [`Promotional price: ${naira(p.promoPrice)} per unit.`, `Minimum quantity: ${p.minQty} pieces.`, `Total minimum order: ${naira(t.promo)}.`]
     : [`Promotional price: ${naira(p.promoPrice)} per unit.`, `Minimum quantity: ${p.minQty} pieces.`, `Quantity I need: ${t.qty} pieces.`, `Promotional total: ${naira(t.promo)}.`]
+  if (t.qty >= DELIVERY.freeMinQty) lines.push(`Please confirm free delivery to my location (offer covers ${deliveryCities()}).`)
   return `Hello MASFIG,\n\nI am interested in your Black Friday offer for ${p.name}.\n\n${lines.join('\n')}\n\nPlease share more information, availability and payment details.`
 }

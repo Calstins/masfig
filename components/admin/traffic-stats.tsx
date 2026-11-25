@@ -13,7 +13,7 @@ const METRICS: { key: keyof Omit<Day, 'date'>; t: string }[] = [
   { key: 'pageviews', t: 'Page views' }, { key: 'visitors', t: 'Visitors' }, { key: 'whatsapp', t: 'WhatsApp clicks' }, { key: 'calls', t: 'Phone calls' }, { key: 'quotes', t: 'Quote requests' },
 ]
 const WHERE: Record<string, string> = { navbar: 'Menu bar button', sticky: 'Floating button', footer: 'Footer', header: 'Header', product: 'Product page button', page: 'Links inside pages',
-  'black-friday-hero': 'Black Friday: top of page', 'black-friday-benefits': 'Black Friday: after details', 'black-friday-testimonial': 'Black Friday: after customer feedback', 'black-friday-footer': 'Black Friday: order section', 'black-friday-sticky': 'Black Friday: mobile bottom bar' }
+  'black-friday-hero': 'Black Friday: top of page', 'black-friday-benefits': 'Black Friday: after details', 'black-friday-testimonial': 'Black Friday: after customer feedback', 'black-friday-footer': 'Black Friday: order section', 'black-friday-sticky': 'Black Friday: mobile bottom bar', 'black-friday-floating': 'Black Friday: floating chat bubble', 'black-friday-delivery': 'Black Friday: free delivery banner' }
 const nice = (l: string) => WHERE[l] ?? l
 const SOURCE = (l: string) => (l === 'direct' ? 'Direct (typed address or bookmark)' : l)
 const n = (v: number) => v.toLocaleString('en-NG')
