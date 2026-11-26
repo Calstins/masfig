@@ -66,15 +66,7 @@ export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
         </>
       )}
 
-      {/* the build-time pixel is already in the page <head>; only load here when the ID was changed in the admin since the last build */}
-      {allowed && cfg.metaPixelId && cfg.metaPixelId !== initial.metaPixelId && (
-        <Script id="meta-pixel" strategy="afterInteractive">{`
-          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init','${cfg.metaPixelId}');fbq('track','PageView');
-        `}</Script>
-      )}
+      {/* Meta Pixel is hardcoded in app/layout.tsx (page head), so it is not loaded here and PageView is never counted twice. */}
 
       {allowed && cfg.clarityId && (
         <Script id="clarity" strategy="afterInteractive">{`

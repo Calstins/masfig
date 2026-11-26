@@ -48,21 +48,31 @@ export const viewport: Viewport = {
   userScalable: true,
 }
 
+const META_PIXEL_SCRIPT = `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '1158961047062261'); 
+fbq('track', 'PageView');
+`
+const META_PIXEL_NOSCRIPT = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1158961047062261&ev=PageView&noscript=1"/>`
+
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   // The Admin > Tracking value wins. If it is empty or not usable, the build variables (NEXT_PUBLIC_*) are used instead, so tags and
   // verification are always present in the page HTML even if the API could not be read.
   const tracking = withTrackingFallback((await getSiteData()).tracking, EMPTY_TRACKING)
-  const pixel = /^\d{10,18}$/.test(tracking.metaPixelId) ? tracking.metaPixelId : ''
   return (
     <html lang="en-NG" className="bg-background" suppressHydrationWarning>
       <head>
-        {/* Meta Pixel base code written straight into the page HTML, so Meta's setup tool and crawlers detect it without running scripts. */}
-        {pixel && (
-          <>
-            <script dangerouslySetInnerHTML={{ __html: `if(location.pathname.indexOf('/admin')!==0){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');}` }} />
-            <noscript><img height="1" width="1" style={{ display: 'none' }} alt="" src={`https://www.facebook.com/tr?id=${pixel}&ev=PageView&noscript=1`} /></noscript>
-          </>
-        )}
+        {/* Meta Pixel Code (hardcoded exactly as provided by Meta; pixel 1158961047062261) */}
+        <script dangerouslySetInnerHTML={{ __html: META_PIXEL_SCRIPT }} />
+        <noscript dangerouslySetInnerHTML={{ __html: META_PIXEL_NOSCRIPT }} />
+        {/* End Meta Pixel Code */}
       </head>
       <body className="antialiased font-sans text-foreground">
         <ThemeLoader />
