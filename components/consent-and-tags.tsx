@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { getApiUrl } from "@/lib/api";
 import { captureUtm, trackWhatsappLinks } from "@/lib/track";
 import { EMPTY_TRACKING, type TrackingConfig } from "@/lib/types";
+import { withTrackingFallback } from "@/lib/tracking-fallback";
 
 
 const hasAnyTag = (t: TrackingConfig) =>
@@ -18,17 +19,14 @@ const hasAnyTag = (t: TrackingConfig) =>
  */
 export function ConsentAndTags({ initial }: { initial: TrackingConfig }) {
   const pathname = usePathname();
-  const [cfg, setCfg] = useState<TrackingConfig>({
-    ...EMPTY_TRACKING,
-    ...initial,
-  });
+  const [cfg, setCfg] = useState<TrackingConfig>(() => withTrackingFallback(initial, EMPTY_TRACKING));
 
   useEffect(() => {
     captureUtm();
     fetch(getApiUrl("/sections/tracking"))
       .then((r) => (r.ok ? r.json() : null))
       .then((d: Partial<TrackingConfig> | null) => {
-        if (d && typeof d === "object") setCfg({ ...EMPTY_TRACKING, ...d });
+        if (d && typeof d === "object") setCfg(withTrackingFallback(d, EMPTY_TRACKING));
       })
       .catch(() => {
         /* keep the build-time values */

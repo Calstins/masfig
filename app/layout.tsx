@@ -5,12 +5,13 @@ import { ConsentAndTags } from '@/components/consent-and-tags'
 import { SiteStats } from '@/components/site-stats'
 import { SITE_URL } from '@/lib/site'
 import { getSiteData } from '@/lib/server-data'
+import { withTrackingFallback } from '@/lib/tracking-fallback'
 import { EMPTY_TRACKING } from '@/lib/types'
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSiteData()
   const { settings } = site
-  const tracking = { ...EMPTY_TRACKING, ...(site.tracking ?? {}) }
+  const tracking = withTrackingFallback(site.tracking, EMPTY_TRACKING)
   const title = settings.metaTitle || 'MASFIG LTD — Commercial Kitchen & Bakery Equipment, Lagos'
   const description = settings.metaDescription
   return {
@@ -48,10 +49,9 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const saved = { ...EMPTY_TRACKING, ...((await getSiteData()).tracking ?? {}) }
-  // The Admin > Tracking value wins. If the build could not read one, fall back to the build variable, then to MASFIG's own pixel,
-  // so the pixel is always present in the page HTML for Meta's setup tool and crawlers.
-  const tracking = { ...saved, metaPixelId: saved.metaPixelId || process.env.NEXT_PUBLIC_META_PIXEL_ID || '1158961047062261' }
+  // The Admin > Tracking value wins. If it is empty or not usable, the build variables (NEXT_PUBLIC_*) are used instead, so tags and
+  // verification are always present in the page HTML even if the API could not be read.
+  const tracking = withTrackingFallback((await getSiteData()).tracking, EMPTY_TRACKING)
   const pixel = /^\d{10,18}$/.test(tracking.metaPixelId) ? tracking.metaPixelId : ''
   return (
     <html lang="en-NG" className="bg-background" suppressHydrationWarning>
